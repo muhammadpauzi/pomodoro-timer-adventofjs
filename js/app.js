@@ -32,3 +32,16 @@ startButton.addEventListener("click", function () {
     clearInterval(timer);
   }
 });
+
+settingsButton.addEventListener("click", function () {
+  if (
+    minutesElement.getAttribute("disabled") === "" ||
+    minutesElement.getAttribute("disabled")
+  ) {
+    minutesElement.removeAttribute("disabled");
+    secondsElement.removeAttribute("disabled");
+  } else {
+    minutesElement.setAttribute("disabled", true);
+    secondsElement.setAttribute("disabled", true);
+  }
+});
