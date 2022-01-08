@@ -14,3 +14,7 @@ Users should be able to:
 - Start and Stop the Timer
 - Click on the gear icon to change the length (minutes and seconds) for the timer.
 
+## Demo
+
+https://user-images.githubusercontent.com/75721128/148648484-af41555d-efab-4158-8d32-0a4178da2200.mp4
+
