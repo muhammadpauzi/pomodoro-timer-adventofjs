@@ -6,6 +6,15 @@ const ring = document.querySelector(".ring");
 
 let timer;
 
+const restart = () => {
+  ring.classList.add("ending");
+  startButton.textContent = "start";
+  clearInterval(timer);
+  alert("Time's up!");
+  minutesElement.value = 15;
+  secondsElement.value = "00";
+};
+
 startButton.addEventListener("click", function () {
   let isStarting = (this.textContent =
     this.textContent.toLowerCase() === "start");
@@ -27,10 +36,7 @@ startButton.addEventListener("click", function () {
 
       countdown--;
       if (countdown < 0) {
-        ring.classList.add("ending");
-        startButton.textContent = "start";
-        clearInterval(timer);
-        alert("Time's up!");
+        restart();
       }
     }, 1000);
   } else {
