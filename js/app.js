@@ -2,6 +2,7 @@ const minutesElement = document.querySelector(".timer .minutes input");
 const secondsElement = document.querySelector(".timer .seconds input");
 const startButton = document.querySelector(".start");
 const settingsButton = document.querySelector(".settings");
+const ring = document.querySelector(".ring");
 
 let timer;
 
@@ -15,6 +16,7 @@ startButton.addEventListener("click", function () {
     let countdown = minutes * 60 + seconds;
 
     timer = setInterval(() => {
+      ring.classList.contains("ending") && ring.classList.remove("ending");
       let hours = Math.floor(countdown / 3600); // get hours
       let m = Math.floor((countdown - hours * 3600) / 60); // get minutes
       let s = countdown - hours * 3600 - m * 60; //  get seconds
@@ -25,7 +27,10 @@ startButton.addEventListener("click", function () {
 
       countdown--;
       if (countdown < 0) {
+        ring.classList.add("ending");
+        startButton.textContent = "start";
         clearInterval(timer);
+        alert("Time's up!");
       }
     }, 1000);
   } else {
